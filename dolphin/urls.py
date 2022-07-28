@@ -22,4 +22,6 @@ from dolphin import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('element/', include('element.urls')),
+    path('api/', include('api.urls')),
+    path('widgets/', include('widget.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
