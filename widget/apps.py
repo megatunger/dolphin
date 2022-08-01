@@ -12,16 +12,17 @@ class WidgetConfig(AppConfig):
 
     def ready(self):
         from widget.models import Widget
-        widgets = Widget.objects.all()
-        env_widgets = list(eval(settings.WIDGET_URLS))
-        for title, url in pairwise(env_widgets):
-            widget = Widget.objects.filter(title=title)
-            if widget.exists():
-                _widget = widget.get()
-                _widget.url = url
-                _widget.save()
-                print(f'Widget exist, {_widget.title} {_widget.url}')
-            else:
-                _widget = Widget.objects.create(title=title, url=url, description="")
-                print(f'Create new widget, {_widget.title} {_widget.url}')
+        if 'widget_widget' in connection.introspection.table_names():
+            widgets = Widget.objects.all()
+            env_widgets = list(eval(settings.WIDGET_URLS))
+            for title, url in pairwise(env_widgets):
+                widget = Widget.objects.filter(title=title)
+                if widget.exists():
+                    _widget = widget.get()
+                    _widget.url = url
+                    _widget.save()
+                    print(f'Widget exist, {_widget.title} {_widget.url}')
+                else:
+                    _widget = Widget.objects.create(title=title, url=url, description="")
+                    print(f'Create new widget, {_widget.title} {_widget.url}')
             # print(widget)
