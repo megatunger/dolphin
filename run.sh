@@ -1,3 +1,5 @@
+cd /usr/local/src/dolphin
+
 source $HOME/.poetry/env
 
 poetry install
