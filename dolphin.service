@@ -2,7 +2,7 @@
 Description=Integration Manager
 
 [Service]
-ExecStart=./usr/local/src/dolphin/run.sh
+ExecStart=/usr/local/src/dolphin/run.sh
 
 [Install]
 WantedBy=multi-user.target
