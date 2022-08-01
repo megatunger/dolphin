@@ -1,0 +1,8 @@
+[Unit]
+Description=Integration Manager
+
+[Service]
+ExecStart=~/dolphin/run.sh
+
+[Install]
+WantedBy=multi-user.target
