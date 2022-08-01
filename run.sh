@@ -6,8 +6,6 @@ source $HOME/.poetry/env
 
 poetry install
 
-poetry shell
-
 poetry run python3 manage.py migrate
 
 poetry run python3 manage.py runserver 8011
