@@ -8,6 +8,6 @@ poetry install
 
 poetry shell
 
-python3 manage.py migrate
+poetry run python3 manage.py migrate
 
-python3 manage.py runserver 8011
+poetry run python3 manage.py runserver 8011
