@@ -1,10 +1,13 @@
 from django.apps import AppConfig
-
+from django.db import connections
 from dolphin import settings
 
 def pairwise(iterable):
     a = iter(iterable)
     return zip(a, a)
+
+def table_exists(table_name: str, connection_name: str) -> bool:
+    return table_name in connections['default'].introspection.table_names()
 
 class WidgetConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
@@ -12,7 +15,7 @@ class WidgetConfig(AppConfig):
 
     def ready(self):
         from widget.models import Widget
-        if 'widget_widget' in connection.introspection.table_names():
+        if table_exists('widget_widget'):
             widgets = Widget.objects.all()
             env_widgets = list(eval(settings.WIDGET_URLS))
             for title, url in pairwise(env_widgets):
@@ -25,4 +28,3 @@ class WidgetConfig(AppConfig):
                 else:
                     _widget = Widget.objects.create(title=title, url=url, description="")
                     print(f'Create new widget, {_widget.title} {_widget.url}')
-            # print(widget)
