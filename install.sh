@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt install git
 
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
@@ -5,6 +7,8 @@ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poet
 x=$(pwd)
 
 cp -R "$x" /usr/local/src/dolphin
+
+sudo chmod +x /usr/local/src/run.sh
 
 sudo cp dolphin.service /lib/systemd/system/dolphin.service
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd /usr/local/src/dolphin
 
 source $HOME/.poetry/env
