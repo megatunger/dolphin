@@ -10,4 +10,6 @@ sudo cp dolphin.service /lib/systemd/system/dolphin.service
 
 sudo systemctl daemon-reload
 
-sudo systemctl enable dolphin.service
+sudo systemctl stop dolphin.service
+
+sudo systemctl start dolphin.service
