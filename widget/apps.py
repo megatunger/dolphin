@@ -7,7 +7,7 @@ def pairwise(iterable):
     return zip(a, a)
 
 def table_exists(table_name: str, connection_name: str) -> bool:
-    return table_name in connections['default'].introspection.table_names()
+    return table_name in connections[connection_name].introspection.table_names()
 
 class WidgetConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
@@ -15,7 +15,7 @@ class WidgetConfig(AppConfig):
 
     def ready(self):
         from widget.models import Widget
-        if table_exists('widget_widget'):
+        if table_exists('widget_widget', 'default'):
             widgets = Widget.objects.all()
             env_widgets = list(eval(settings.WIDGET_URLS))
             for title, url in pairwise(env_widgets):
