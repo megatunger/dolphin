@@ -1,4 +1,6 @@
 # Guidelines
+
+## 1. Prepare ENV
 - Find admin token in synapse DB, table `access_tokens`. Token should have prefix as `syt_<xxx>`. Replace in `ADMIN_TOKEN` env variable
 - Update environment variables in FILE `run.sh`:
 ```
@@ -11,7 +13,12 @@ export WIDGET_URLS='["uCall","https://google.com","uCall 2","http://localhost:30
   - If you had more than 1 widget, keep appending like ["NAME", "URL", "NAME", "URL", ...]
   - Everytime startup, app will check existed widget name. If not create a new one. If existed, update with latest url
 
-- Remember to integrate with Element:
+## 2. Run install.sh
+```
+./install.sh
+```
+
+## 3. Remember to integrate with Element:
 ```
 ...
   "integrations_ui_url": "http://localhost:8011/element",
