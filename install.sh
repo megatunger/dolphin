@@ -12,7 +12,7 @@ poetry install
 
 x=$(pwd)
 
-cp -R "$x" /usr/local/src/dolphin
+cp -R "$x/*" /usr/local/src/dolphin
 
 sudo chmod +x /usr/local/src/dolphin/run.sh
 
