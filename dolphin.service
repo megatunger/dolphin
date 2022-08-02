@@ -5,7 +5,7 @@ Description=Integration Manager
 Type=simple
 User=user
 Group=user
-ExecStart=/bin/bash -l -c 'exec "$@"' _ /usr/local/src/dolphin/run.sh
+ExecStart=/bin/bash /usr/local/src/dolphin/run.sh
 
 [Install]
 WantedBy=multi-user.target
