@@ -3,8 +3,6 @@ Description=Integration Manager
 
 [Service]
 Type=simple
-User=user
-Group=user
 ExecStart=/bin/bash /usr/local/src/dolphin/run.sh
 
 [Install]
