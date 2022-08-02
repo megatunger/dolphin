@@ -16,6 +16,8 @@ cp -R "$x" /usr/local/src/dolphin
 
 sudo chmod +x /usr/local/src/dolphin/run.sh
 
+rm -rf /lib/systemd/system/dolphin.service
+
 sudo cp dolphin.service /lib/systemd/system/dolphin.service
 
 sudo systemctl daemon-reload

@@ -2,7 +2,7 @@
 
 cd /usr/local/src/dolphin
 
-. venv/bin/activate
+source ./.venv/bin/activate
 
 python3 manage.py migrate
 
